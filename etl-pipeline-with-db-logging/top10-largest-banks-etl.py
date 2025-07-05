@@ -24,7 +24,6 @@ url = "https://web.archive.org/web/20230908091635/https://en.wikipedia.org/wiki/
 table_attribs = ["Name", "MC_USD_Billion"]
 csv_path = './Largest_banks_data.csv'
 rate_csv = './exchange_rate.csv'
-db_name = './Banks.db'
 table_name = 'Largest_banks'
 sql_connection = sqlite3.connect('Banks.db')
 query_statement1 = f"SELECT * from {table_name}"
