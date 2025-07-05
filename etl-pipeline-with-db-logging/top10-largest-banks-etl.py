@@ -25,7 +25,6 @@ table_attribs = ["Name", "MC_USD_Billion"]
 csv_path = './Largest_banks_data.csv'
 rate_csv = './exchange_rate.csv'
 table_name = 'Largest_banks'
-sql_connection = sqlite3.connect('Banks.db')
 query_statement1 = f"SELECT * from {table_name}"
 query_statement2 = f"SELECT AVG(MC_GBP_Billion) FROM {table_name}"
 query_statement3 = f"SELECT Name from {table_name} LIMIT 5"
