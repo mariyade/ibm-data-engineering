@@ -104,4 +104,6 @@ run_query(query_statement3, sql_connection)
 
 log_progress('Process Complete.')
 
+sql_connection.close()
+
 log_progress('Server Connection closed')
