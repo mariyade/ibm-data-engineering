@@ -1,0 +1,31 @@
+Task 5: Grouping Sets Query
+
+SELECT country, category, SUM(amount) AS totalsales
+FROM FactSales FS
+JOIN DimCountry DC ON FS.countryid = DC.countryid
+JOIN DimCategory DCat ON FS.categoryid = DCat.categoryid
+GROUP BY GROUPING SETS ((country), (category));
+
+Task 6: Rollup Query
+
+SELECT d.Year, c.country, SUM(f.amount) AS totalsales
+FROM FactSales f
+JOIN DimDate d ON f.dateid = d.dateid
+JOIN DimCountry c ON f.countryid = c.countryid
+GROUP BY ROLLUP (d.Year, c.country);
+
+Task 7: Cube Query
+
+SELECT d.Year, c.country, AVG(f.amount) AS average_sales
+FROM FactSales f
+JOIN DimDate d ON f.dateid = d.dateid
+JOIN DimCountry c ON f.countryid = c.countryid
+GROUP BY CUBE (d.Year, c.country);
+
+ask 8: Create MQT (Materialized View)
+
+CREATE MATERIALIZED VIEW total_sales_per_country AS
+SELECT c.country, SUM(f.amount) AS total_sales
+FROM FactSales f
+JOIN DimCountry c ON f.countryid = c.countryid
+GROUP BY c.country;
